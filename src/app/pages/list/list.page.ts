@@ -32,6 +32,7 @@ export class ListPage implements OnInit {
         this.dataStorage = res;
       })
       .catch((err) => {
+        this.dataStorage = [];
         console.log(err);
       });
     } else {
@@ -45,6 +46,7 @@ export class ListPage implements OnInit {
       this.dataStorage = res;
     })
     .catch((err) => {
+      this.dataStorage = [];
       console.log(err);
     });
   }

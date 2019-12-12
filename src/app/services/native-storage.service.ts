@@ -20,19 +20,14 @@ export class NativeStorageService {
         arrNames.push(usuario);
         this.platform.ready().then((resPlatform) => {
           if (resPlatform === 'cordova') {
-            this.nativeStorage.setItem(group, JSON.stringify(arrNames))
-            .then(() => {
-              this.getAllByGroup(group)
+            localStorage.setItem(group, JSON.stringify(arrNames));
+            this.getAllByGroup(group)
                 .then((resGroup) => {
                   resolve(resGroup);
                 })
                 .catch((err) => {
                   reject(err);
                 });
-            })
-            .catch((err) => {
-              reject(err);
-            });
           } else if (resPlatform === 'dom') {
             localStorage.setItem(group, JSON.stringify(arrNames));
             this.getAllByGroup(group)
@@ -59,13 +54,7 @@ export class NativeStorageService {
         .then((resPlatform) => {
           console.log('Es: ' + resPlatform);
           if (resPlatform === 'cordova') {
-            this.nativeStorage.getItem(group)
-              .then((res) => {
-                resolve(JSON.parse(res));
-              })
-              .catch((err) => {
-                reject(err);
-              });
+            resolve(JSON.parse(localStorage.getItem(group)));
           } else if (resPlatform === 'dom') {
             resolve(JSON.parse(localStorage.getItem(group)));
           }

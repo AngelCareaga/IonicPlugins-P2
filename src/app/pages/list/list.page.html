@@ -22,18 +22,18 @@
         </ion-item>
       </ion-col>
       <ion-col size="12" size-sm>
-          <ion-input placeholder="Ingresa nombre" [(ngModel)]="inputNombre"></ion-input>
-          <ion-input placeholder="Ingresa edad" [(ngModel)]="inputEdad"></ion-input>
-          <ion-button primary (click)="addNombre()">Agregar</ion-button>
-        </ion-col>
+        <ion-input placeholder="Ingresa nombre" [(ngModel)]="inputNombre"></ion-input>
+        <ion-input placeholder="Ingresa edad" [(ngModel)]="inputEdad"></ion-input>
+        <ion-button primary (click)="addNombre()">Agregar</ion-button>
+      </ion-col>
       <ion-col size="12" size-sm>
         <ion-list>
-            <ion-list-header style="text-transform: uppercase;">{{selectGrupo}}</ion-list-header>
-            <ion-item *ngFor="let item of dataStorage">
-              <ion-label>Nombre: {{item.nombre}}</ion-label>
-              <ion-label *ngIf="item.edad">Edad: {{item.edad}}</ion-label>
-            </ion-item>
-          </ion-list>
+          <ion-list-header style="text-transform: uppercase;">{{selectGrupo}}</ion-list-header>
+          <ion-item *ngFor="let item of dataStorage">
+            <ion-label>Nombre: {{item.nombre}}</ion-label>
+            <ion-label *ngIf="item.edad">Edad: {{item.edad}}</ion-label>
+          </ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
