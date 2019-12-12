@@ -5,6 +5,10 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { Camera } from '@ionic-native/camera/ngx';
+import { Device } from '@ionic-native/device/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @NgModule({
   imports: [
@@ -17,6 +21,12 @@ import { HomePage } from './home.page';
         component: HomePage
       }
     ])
+  ],
+  providers: [
+    Camera,
+    Device,
+    BarcodeScanner,
+    NativeStorage
   ],
   declarations: [HomePage]
 })
