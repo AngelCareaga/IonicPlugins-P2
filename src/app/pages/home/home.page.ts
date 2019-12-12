@@ -3,8 +3,7 @@ import { Platform } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { NativeStorageService } from '../native-storage.service';
+import { NativeStorageService } from '../../services/native-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -25,8 +24,6 @@ export class HomePage implements OnInit {
     public platform: Platform,
     public device: Device,
     public barcodeScanner: BarcodeScanner,
-    // tslint:disable-next-line:variable-name
-    private _nativeStorage: NativeStorageService
     ) {
 
     this.optionsCamera = {
