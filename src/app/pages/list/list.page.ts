@@ -27,15 +27,26 @@ export class ListPage implements OnInit {
   addNombre() {
 
     if (this.selectGrupo) {
-      this._nativeStorage.addNombreByGroup(this.selectGrupo, {nombre: this.inputNombre, edad: this.inputEdad});
-      this.dataStorage = this._nativeStorage.getAllByGroup(this.selectGrupo);
+      this._nativeStorage.addNombreByGroup(this.selectGrupo, {nombre: this.inputNombre, edad: this.inputEdad})
+      .then((res: Usuario[]) => {
+        this.dataStorage = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     } else {
       this.presentAlert();
     }
   }
 
   updateList() {
-    this.dataStorage = this._nativeStorage.getAllByGroup(this.selectGrupo);
+    this._nativeStorage.getAllByGroup(this.selectGrupo)
+    .then((res) => {
+      this.dataStorage = res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   async presentAlert() {
